@@ -1,0 +1,70 @@
+/* assets/navBar.css */
+.navbar {
+  background-color: #ceb212be ;
+  padding: 1rem;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed; 
+  top: 0; 
+  width: 70%; 
+  z-index: 1000; 
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.navbar-logo {
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: white;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-item {
+  margin-left: 1rem;
+  position: relative;
+}
+
+.nav-links {
+  text-decoration: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.nav-links:hover {
+  background-color: #ceb212d1;
+  border-radius: 4px;
+}
+
+.btn-light {
+  background-color: #ceb212be;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-light:hover {
+  background-color: #444;
+}
+
+
+/* Add this to create space for the fixed navbar */
+body {
+  padding-top: 4rem; /* Adjust this value to match the height of the navbar */
+}
