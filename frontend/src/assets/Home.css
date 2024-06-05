@@ -1,0 +1,57 @@
+.home-container {
+  width: 100%;
+  padding: 20px;
+}
+
+.home-card {
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  margin-bottom: 20px;
+}
+
+.home-img {
+  max-width: 100%;
+}
+
+.home-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.home-h1 {
+  margin-bottom: 10px;
+  font-size: 1.5em;
+}
+
+.home-button {
+  margin: 5px 5px 5px 0;
+}
+
+.home-p {
+  margin-top: 10px;
+  font-size: 1em;
+}
+
+.middle, .low {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.middle .col-md-3, .low .col-md-6 {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.middle .col-md-3 {
+  margin-bottom: 10px;
+}
+
+.low .col-md-6 {
+  margin-bottom: 20px;
+}
