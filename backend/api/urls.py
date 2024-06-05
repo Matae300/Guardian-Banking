@@ -2,13 +2,13 @@ from django.urls import path, include
 from .views import *
 from rest_framework.routers import DefaultRouter
 
+
+# Define your router
 router = DefaultRouter()
-router.register('member', MemberViewset, basename='member')
-router.register('account', AccountViewset, basename='account')
-router.register('card', CardViewset, basename='card')
-router.register('transaction', TransactionViewset, basename='transaction')
+router.register('accounts', AccountViewset)
+router.register('cards', CardViewset)
+router.register('transactions', TransactionViewset)
 
-
-
-urlpatterns = router.urls
-
+urlpatterns = [
+    path('', include(router.urls)),
+]

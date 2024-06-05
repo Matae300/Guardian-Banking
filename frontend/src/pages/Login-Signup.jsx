@@ -1,8 +1,13 @@
+import Login from '../components/Login'
+import Signup from '../components/Signup'
+import Designer from '../assets/images/Designer.png'
 
 const Register = () => {
   return (
     <div>
-      <h1>Login</h1>
+      <Login/>
+      <Signup/>
+      <img src={Designer}/>
     </div>
   );
 };
