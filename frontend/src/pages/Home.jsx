@@ -1,4 +1,3 @@
-import Footer from '../components/Footer';
 import King from '../assets/images/emperor.jpg';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import '../assets/Home.css';
@@ -42,7 +41,6 @@ const Home = () => {
             <p>Deposit checks using your smartphone or tablet camera with TD Bank Mobile Deposit. Funds are usually available the next business day</p>
           </Col>
         </Row>
-        <Footer />
       </Container>
     );
   };

@@ -25,10 +25,10 @@
 
 .footer-icon {
   font-size: 1.5em;
-  color: #007bff; /* Bootstrap primary color */
+  color: #007bff;
   text-decoration: none;
 }
 
 .footer-icon:hover {
-  color: #0056b3; /* Darker blue on hover */
+  color: #0056b3; 
 }

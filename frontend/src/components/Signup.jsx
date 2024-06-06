@@ -1,12 +1,15 @@
 import { useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios'; 
+import '../assets/Form.css'
 
 const SignupPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loggedIn, setLoggedIn] = useState(false);
   const [error, setError] = useState('');
+
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -24,11 +27,11 @@ const SignupPage = () => {
   };
 
   if (loggedIn) {
-    return <Redirect to="/" />; 
+    return navigate("/");
   }
 
   return (
-    <div>
+    <div className="register-container">
       <h2>Sign up</h2>
       <form onSubmit={handleLogin}>
         <input
@@ -36,15 +39,17 @@ const SignupPage = () => {
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+          className="register-input"
         />
         <input
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          className="register-input"
         />
-        <button type="submit">Sign up</button>
-        {error && <p>{error}</p>}
+        <button type="submit" className="register-button">Sign up</button>
+        {error && <p className="error-message">{error}</p>}
       </form>
     </div>
   );
