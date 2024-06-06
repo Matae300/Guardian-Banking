@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios'; 
-import '../assets/Form.css'
+import axios from 'axios';
+import '../assets/Form.css';
 
 const CreateAccount = () => {
   const [balance] = useState('0.00'); 
-  const [accountType, setAccountType] = useState('option1'); 
+  const [accountType, setAccountType] = useState('checking'); 
   const navigate = useNavigate();
   const authToken = localStorage.getItem('accessToken');
 
@@ -24,13 +24,13 @@ const CreateAccount = () => {
         account_type: accountType
       }, {
         headers: {
-          Authorization: `Bearer ${authToken}` 
+          Authorization: `Bearer ${authToken}`
         }
-    });
+      });
       console.log('Account created successfully:', response.data);
       navigate('/account');
     } catch (error) {
-      console.error('Error creating account:', error.response.data);
+      console.error('Error creating account:', error.response ? error.response.data : error.message);
     }
   };
 
@@ -39,12 +39,12 @@ const CreateAccount = () => {
       <h2>Create Account</h2>
       <form onSubmit={handleFormSubmit}>
         <select
-          value={accountType} 
-          onChange={(e) => setAccountType(e.target.value)} 
-          className="form-control" 
+          value={accountType}
+          onChange={(e) => setAccountType(e.target.value)}
+          className="form-control"
         >
-          <option value="option1">Checking</option>
-          <option value="option2">Savings</option>
+          <option value="checking">Checking</option>
+          <option value="savings">Savings</option>
         </select>
         <button type="submit" className="">Create Account</button>
       </form>

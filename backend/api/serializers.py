@@ -22,7 +22,7 @@ class AccountSerializer(serializers.ModelSerializer):
 class CardSerializer(serializers.ModelSerializer):
   class Meta:
     model = Card
-    fields = ['card_number', 'card_type', 'expiration']
+    fields = ['card_number', 'card_type', 'expiration', 'cvv']
 
 class TransactionSerializer(serializers.ModelSerializer):
   class Meta:

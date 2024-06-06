@@ -22,11 +22,17 @@ class AccountViewset(viewsets.ModelViewSet):
     authentication_classes = [JWTAuthentication]
     permission_classes = [permissions.IsAuthenticated]
 
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+
 class CardViewset(viewsets.ModelViewSet):
     queryset = Card.objects.all()
     serializer_class = CardSerializer
     authentication_classes = [JWTAuthentication]
     permission_classes = [permissions.IsAuthenticated]
+
+    def perform_create(self, serializer):
+      serializer.save(user=self.request.user)
 
 class TransactionViewset(viewsets.ModelViewSet):
     queryset = Transaction.objects.all()
@@ -34,19 +40,21 @@ class TransactionViewset(viewsets.ModelViewSet):
     authentication_classes = [JWTAuthentication]
     permission_classes = [permissions.IsAuthenticated]
 
+    def perform_create(self, serializer):
+      serializer.save(account=self.request.account)
+
     def list(self, request):
-        user_id = request.user.id
-        transactions = self.queryset.filter(author_id=user_id)
+        user=self.request.user
+        transactions = self.queryset.filter(author=user)
         serializer = self.serializer_class(transactions, many=True)
         return Response(serializer.data)
 
     def create(self, request):
         serializer = self.serializer_class(data=request.data)
         if serializer.is_valid():
-            serializer.save()
+            serializer.save(author=request.user)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
-        else:
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def retrieve(self, request, pk=None):
         try:
@@ -63,8 +71,7 @@ class TransactionViewset(viewsets.ModelViewSet):
             if serializer.is_valid():
                 serializer.save()
                 return Response(serializer.data)
-            else:
-                return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         except Transaction.DoesNotExist:
             return Response({'error': 'Transaction not found.'}, status=status.HTTP_404_NOT_FOUND)
 
