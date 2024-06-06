@@ -22,6 +22,10 @@ class AccountViewset(viewsets.ModelViewSet):
     authentication_classes = [JWTAuthentication]
     permission_classes = [permissions.IsAuthenticated]
 
+    def get_queryset(self):
+      user = self.request.user
+      return Account.objects.filter(user=user)
+
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
 
@@ -44,8 +48,8 @@ class TransactionViewset(viewsets.ModelViewSet):
       serializer.save(account=self.request.account)
 
     def list(self, request):
-        user=self.request.user
-        transactions = self.queryset.filter(author=user)
+        user_id = request.user.id
+        transactions = self.queryset.filter(author_id=user_id)
         serializer = self.serializer_class(transactions, many=True)
         return Response(serializer.data)
 
