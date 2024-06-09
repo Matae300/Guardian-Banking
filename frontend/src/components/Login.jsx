@@ -6,7 +6,6 @@ import '../assets/Form.css'
 const LoginPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [loggedIn, setLoggedIn] = useState(false);
   const [error, setError] = useState('');
 
   const navigate = useNavigate();
@@ -20,15 +19,11 @@ const LoginPage = () => {
       });
       const accessToken = response.data.access; 
       localStorage.setItem('accessToken', accessToken); 
-      setLoggedIn(true); 
+      navigate('/account');
     } catch (error) {
       setError('Invalid credentials'); 
     }
   };
-
-  if (loggedIn){
-    return navigate("/");
- }
 
   return (
     <div className="register-container">

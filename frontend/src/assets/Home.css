@@ -54,18 +54,21 @@
 
 .middle .col-md-6, .low .col-md-6 {
   padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
   background-color: #f9f9f9;
 }
 
 .middle .col-md-6 {
+  color: #ffffff;
+  background-color: #ceb212be;
   font-weight: bold;
+  border: 1px solid #0000004b;
   margin-bottom: 10px;
   width: 25%;
 }
 
 .low .col-md-6 {
+  border: 1px solid #ccc;
+  border-radius: 5px;
   margin-bottom: 20px;
   width: 25%;
 }

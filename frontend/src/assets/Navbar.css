@@ -1,15 +1,12 @@
 /* assets/navBar.css */
 .navbar {
   background-color: #ceb212be ;
-  padding: 1rem;
+  padding: 0.5rem;
   font-weight: bold;
   color: rgb(255, 255, 255);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   position: fixed; 
   top: 0; 
-  width: 70%; 
+  width: 67.8%; 
   z-index: 1000; 
 }
 
@@ -44,6 +41,12 @@
   cursor: pointer;
 }
 
+.nav-item button {
+  background-color: #ceb21215 ;
+  border: none;
+  font-weight: 700;
+}
+
 .nav-links:hover {
   background-color: #ceb212d1;
   border-radius: 4px;
@@ -59,12 +62,10 @@
   display: inline-block;
 }
 
-.btn-light:hover {
-  background-color: #444;
-}
+
 
 
 /* Add this to create space for the fixed navbar */
 body {
-  padding-top: 4rem; /* Adjust this value to match the height of the navbar */
+  padding-top: 2rem; /* Adjust this value to match the height of the navbar */
 }
