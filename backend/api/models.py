@@ -32,6 +32,7 @@ class Card(models.Model):
 
 class Transaction(models.Model):
     transaction_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='transactions', default=3)
     source_account = models.ForeignKey(Account, related_name='source_transactions', on_delete=models.CASCADE)
     destination_account = models.ForeignKey(Account, related_name='destination_transactions', on_delete=models.CASCADE)
     amount = models.DecimalField(max_digits=10, decimal_places=2)
@@ -42,7 +43,6 @@ class Transaction(models.Model):
     )
     transaction_type = models.CharField(max_length=20, choices=TRANSACTION_TYPES)
     date_time = models.DateTimeField(auto_now_add=True)
-    description = models.TextField(max_length=255)
 
     def __str__(self):
         return f"Transaction ID: {self.transaction_id}"

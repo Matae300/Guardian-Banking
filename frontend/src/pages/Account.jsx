@@ -1,14 +1,17 @@
-import  { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import AddAccount from '../components/CreateAccount';
 import Card from '../components/Card';
+import Transaction from '../components/Transaction';
 import '../assets/Form.css';
+import '../assets/Account.css';
 
 const CreateAccount = () => {
   const authToken = localStorage.getItem('accessToken');
   const [accountData, setAccountData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [openAccount, setOpenAccount] = useState(null); 
 
   const getAccount = async () => {
     try {
@@ -30,6 +33,10 @@ const CreateAccount = () => {
     getAccount();
   }, []);
 
+  const toggleAccount = (index) => {
+    setOpenAccount(openAccount === index ? null : index);
+  };
+
   return (
     <div className="">
       <AddAccount /> 
@@ -42,9 +49,16 @@ const CreateAccount = () => {
         <div>
           <h2>Accounts</h2>
           {accountData.map((account, index) => (
-            <div key={index} className="account-item">
+            <div key={index} className="account-item" onClick={() => toggleAccount(index)}>
               <p>Balance: ${account.balance}</p>
               <p>Type: {account.account_type}</p>
+              {openAccount === index && (
+                <div className="dropdown">
+                  {/* Dropdown content here */}
+                  <p>Account Number: {account.account_number}</p>
+                  <Transaction/>
+                </div>
+              )}
             </div>
           ))}
         </div>

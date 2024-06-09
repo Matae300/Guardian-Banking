@@ -27,6 +27,6 @@ class CardSerializer(serializers.ModelSerializer):
 class TransactionSerializer(serializers.ModelSerializer):
   class Meta:
     model = Transaction
-    fields = ['destination_account', 'amount', 'transaction_type', 'description']
+    fields = ['transaction_id', 'destination_account', 'amount', 'transaction_type']
 
     

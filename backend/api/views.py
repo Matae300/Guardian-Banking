@@ -47,10 +47,9 @@ class TransactionViewset(viewsets.ModelViewSet):
     def perform_create(self, serializer):
       serializer.save(account=self.request.account)
 
-    def list(self, request):
-        user_id = request.user.id
-        transactions = self.queryset.filter(author_id=user_id)
-        serializer = self.serializer_class(transactions, many=True)
+    def list(self, request, *args, **kwargs):
+        queryset = self.get_queryset()
+        serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
 
     def create(self, request):
