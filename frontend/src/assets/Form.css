@@ -12,9 +12,11 @@
 }
 
 .register-button {
+  font-weight: bold;
   width: 100%;
   padding: 10px;
-  background-color: #0072CE;
+  margin-left: 10px;
+  background-color: #ceb212be;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -22,7 +24,7 @@
 }
 
 .register-button:hover {
-  background-color: #005999;
+  background-color: #ceb2129c;
 }
 
 .error-message {

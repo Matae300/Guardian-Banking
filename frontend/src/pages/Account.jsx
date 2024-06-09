@@ -40,11 +40,10 @@ const CreateAccount = () => {
         <p>Error: {error}</p>
       ) : (
         <div>
-          <h2>Account Details</h2>
+          <h2>Accounts</h2>
           {accountData.map((account, index) => (
             <div key={index} className="account-item">
-              <p>Account Number: {account.account_number}</p>
-              <p>Balance: {account.balance}</p>
+              <p>Balance: ${account.balance}</p>
               <p>Type: {account.account_type}</p>
             </div>
           ))}

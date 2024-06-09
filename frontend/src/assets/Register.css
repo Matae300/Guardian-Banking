@@ -1,15 +1,25 @@
 /* Register.css */
-.form-container {
-  background-color: #f8f9fa;
-  padding: 20px;
-  border-radius: 5px;
+.container {
+  margin-top: 50px; 
+}
+
+.row-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .image-container {
-  padding: 20px;
+  flex: 1;
+  padding-right: 20px; 
 }
 
-.image-container img {
+.image {
   max-width: 100%;
   height: auto;
+}
+
+.form-container {
+  text-align: center;
+  flex: 1;
 }

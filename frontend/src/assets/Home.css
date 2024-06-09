@@ -1,57 +1,76 @@
-.home-container {
-  width: 100%;
-  padding: 20px;
-}
-
 .home-card {
   width: 100%;
-  padding: 20px;
-  border: 1px solid #ccc;
   border-radius: 10px;
-  background-color: #f9f9f9;
   margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .home-img {
-  max-width: 100%;
+  max-width: 80%; 
 }
 
 .home-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
+
 }
 
 .home-h1 {
   margin-bottom: 10px;
   font-size: 1.5em;
+  text-align: center; 
 }
 
 .home-button {
-  margin: 5px 5px 5px 0;
+  margin: 5px 0; 
+  padding: 10px 20px; 
+  width: 100%;
+  background-color: #ceb212be;
+  color: #fff; 
+  font-weight: bold;
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer;
+  transition: background-color 0.3s ease; 
+}
+
+.home-button:hover {
+  background-color: #ceb21299; 
 }
 
 .home-p {
   margin-top: 10px;
-  font-size: 1em;
+  font-size: 1.25em;
+  text-align: center; 
 }
 
 .middle, .low {
+  display: flex; 
   width: 100%;
   margin-bottom: 20px;
 }
 
-.middle .col-md-3, .low .col-md-6 {
+.middle .col-md-6, .low .col-md-6 {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #f9f9f9;
 }
 
-.middle .col-md-3 {
+.middle .col-md-6 {
+  font-weight: bold;
   margin-bottom: 10px;
+  width: 25%;
 }
 
 .low .col-md-6 {
   margin-bottom: 20px;
+  width: 25%;
+}
+
+.low .col-md-6 img {
+  margin-bottom: 20px;
+  width: 100%;
 }
