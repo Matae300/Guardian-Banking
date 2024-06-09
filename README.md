@@ -3,6 +3,14 @@
 ## Description
 Guardian Bank is a fake bank application created for demonstration purposes on a resume. The application features a web application built with a Django backend and a React frontend, utilizing JWT (JSON Web Token) authentication for secure user authentication and authorization.
 
+![Screensoht](./frontend/src/assets/images/screenshot2.jpeg)
+![Screensoht](./frontend/src/assets/images/screenshot1.jpeg)
+
+![React Badge](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=000&style=flat-square)![Node.js Badge](https://img.shields.io/badge/Node.js-393?logo=nodedotjs&logoColor=fff&style=flat-square)
+
+![JSON Web Tokens Badge](https://img.shields.io/badge/JSON%20Web%20Tokens-000?logo=jsonwebtokens&logoColor=fff&style=flat-square)![ESLint Badge](https://img.shields.io/badge/ESLint-4B32C3?logo=eslint&logoColor=fff&style=flat-square)![Bootstrap Badge](https://img.shields.io/badge/Bootstrap-7952B3?logo=bootstrap&logoColor=fff&style=flat-square)
+
+
 ## Technologies Used
 - Django: Backend framework for handling data models, business logic, and API endpoints.
 - React: Frontend library for building dynamic user interfaces and components.
