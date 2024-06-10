@@ -2,7 +2,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import Login from '../components/Login';
 import Signup from '../components/Signup';
 import DesignerImage from '../assets/images/Designer.png';
-import '../assets/Register.css'; // Import your CSS file
+import '../assets/Register.css'; 
 
 const Register = () => {
   return (

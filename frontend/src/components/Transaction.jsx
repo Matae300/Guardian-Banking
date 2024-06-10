@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
+import moment from 'moment';
 import axios from 'axios';
+import '../assets/Transaction.css';
 
 const Transaction = () => {
   const authToken = localStorage.getItem('accessToken');
@@ -11,10 +13,10 @@ const Transaction = () => {
     try {
       const response = await axios.get('http://localhost:8000/transactions/', {
         headers: {
-          Authorization: `Bearer ${authToken}`
-        }
+          Authorization: `Bearer ${authToken}`,
+        },
       });
-      setTransactionData(response.data); 
+      setTransactionData(response.data);
       setLoading(false);
     } catch (error) {
       console.error('Error fetching transaction:', error);
@@ -23,28 +25,24 @@ const Transaction = () => {
     }
   };
 
-  console.log(transactionData)
-
   useEffect(() => {
     getTransaction();
   }, []);
 
-  
   return (
-    <div className="">
+    <div>
       {loading ? (
         <p>Loading account data...</p>
       ) : error ? (
         <p>Error: {error}</p>
       ) : (
-        <div>
-          <h2>transactions</h2>
+        <div className="transaction-container">
+          <h2 className="transaction-heading">Account History</h2>
           {transactionData.map((transaction, index) => (
             <div key={index} className="transaction-item">
-              <p>transaction: {transaction.transaction_id}</p>
-              <p>type: {transaction.transaction_type}</p>
-              <p>amount: ${transaction.amount}</p>
-              <p>date: {Date(transaction.date_time).toLocaleString()}</p>
+             <p className="transaction-info">
+                {moment(transaction.date_time).format('MMMM Do YYYY').toUpperCase()} {transaction.transaction_type.toUpperCase()} <span style={{ color: 'green' }}>${transaction.amount.toUpperCase()}</span>
+              </p>
             </div>
           ))}
         </div>

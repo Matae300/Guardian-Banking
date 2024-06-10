@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import AddAccount from '../components/CreateAccount';
-import Card from '../components/Card';
 import Transaction from '../components/Transaction';
 import '../assets/Form.css';
 import '../assets/Account.css';
@@ -10,8 +8,8 @@ const CreateAccount = () => {
   const authToken = localStorage.getItem('accessToken');
   const [accountData, setAccountData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [openAccount, setOpenAccount] = useState(null); 
+  const [error] = useState(null);
+  const [showAccount, setshowAccount] = useState({});
 
   const getAccount = async () => {
     try {
@@ -20,11 +18,10 @@ const CreateAccount = () => {
           Authorization: `Bearer ${authToken}`
         }
       });
-      setAccountData(response.data); 
-      setLoading(false);
+      setAccountData(response.data);
     } catch (error) {
       console.error('Error fetching account:', error);
-      setError(error.response ? error.response.data : error.message);
+    } finally {
       setLoading(false);
     }
   };
@@ -33,30 +30,31 @@ const CreateAccount = () => {
     getAccount();
   }, []);
 
-  const toggleAccount = (index) => {
-    setOpenAccount(openAccount === index ? null : index);
+  const handleAccountClick = (index) => {
+    setshowAccount((prevState) => ({
+      ...prevState,
+      [index]: !prevState[index],
+    }));
   };
 
   return (
-    <div className="">
-      <AddAccount /> 
-      <Card /> 
+    <div>
       {loading ? (
         <p>Loading account data...</p>
       ) : error ? (
         <p>Error: {error}</p>
+      ) : accountData.length === 0 ? (
+        <p>No accounts yet? Create one Now!</p>
       ) : (
         <div>
-          <h2>Accounts</h2>
+          <h2>Account Details</h2>
           {accountData.map((account, index) => (
-            <div key={index} className="account-item" onClick={() => toggleAccount(index)}>
-              <p>Balance: ${account.balance}</p>
-              <p>Type: {account.account_type}</p>
-              {openAccount === index && (
+            <div key={index} className="account-item" onClick={() => handleAccountClick(index)}>
+              <h4>GB CONVENIENCE {account.account_type.toUpperCase()} ${account.balance}</h4>
+              <h5 className='accountNumber'>{account.account_number}</h5>
+              {showAccount[index] && (
                 <div className="dropdown">
-                  {/* Dropdown content here */}
-                  <p>Account Number: {account.account_number}</p>
-                  <Transaction/>
+                  <Transaction />
                 </div>
               )}
             </div>

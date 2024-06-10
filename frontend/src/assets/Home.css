@@ -28,7 +28,7 @@
   padding: 10px 20px; 
   width: 100%;
   background-color: #ceb212be;
-  color: #fff; 
+  color: #333; 
   font-weight: bold;
   border: none; 
   border-radius: 5px; 
@@ -58,7 +58,7 @@
 }
 
 .middle .col-md-6 {
-  color: #ffffff;
+  color: #333;
   background-color: #ceb212be;
   font-weight: bold;
   border: 1px solid #0000004b;

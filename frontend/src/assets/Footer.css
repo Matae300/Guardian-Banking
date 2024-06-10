@@ -1,5 +1,5 @@
 .footer-container {
-  background-color: #f8f9fa; 
+  background-color: #ceb212d1; 
   padding: 20px;
   border-top: 1px solid #ddd; 
   text-align: center;
@@ -15,6 +15,11 @@
 .footer-heading {
   margin-bottom: 10px;
   font-size: 1.5em;
+  color: #333;
+}
+
+.footer-p {
+  margin-bottom: 10px;
   color: #333;
 }
 
