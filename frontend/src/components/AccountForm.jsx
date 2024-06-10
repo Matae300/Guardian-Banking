@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../assets/Form.css';
 
-const CreateAccount = () => {
+const AccountForm = () => {
   const [balance] = useState('0.00'); 
   const [accountType, setAccountType] = useState('checking'); 
   const navigate = useNavigate();
@@ -52,4 +52,4 @@ const CreateAccount = () => {
   );
 };
 
-export default CreateAccount;
+export default AccountForm;

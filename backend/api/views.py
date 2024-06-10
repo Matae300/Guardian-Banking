@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.db.models import Q
 from rest_framework import viewsets, permissions, status
 from rest_framework.response import Response
 from rest_framework_simplejwt.authentication import JWTAuthentication
@@ -45,13 +46,24 @@ class TransactionViewset(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
 
     def perform_create(self, serializer):
-      serializer.save(account=self.request.account)
+        user_account = self.request.user.accounts.first()  # Assuming user has an associated account
+        if user_account:  # Check if user has an account
+            serializer.save(account=user_account)
+        else:
+            raise ValueError("User has no associated accounts.")
 
     def list(self, request, *args, **kwargs):
-        queryset = self.get_queryset()
-        serializer = self.get_serializer(queryset, many=True)
-        return Response(serializer.data)
-
+        user_accounts = self.request.user.accounts.all()  # Get all accounts associated with the user
+        if user_accounts:  # Check if user has any accounts
+            source_transactions = self.queryset.filter(source_account__in=user_accounts)
+            destination_transactions = self.queryset.filter(destination_account__in=user_accounts)
+            transactions = source_transactions | destination_transactions
+            transactions = transactions.distinct()  
+            serializer = self.serializer_class(transactions, many=True)
+            return Response(serializer.data)
+        else:
+            return Response({"detail": "User has no associated accounts."}, status=400)
+        
     def create(self, request):
         serializer = self.serializer_class(data=request.data)
         if serializer.is_valid():

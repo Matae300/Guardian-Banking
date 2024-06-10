@@ -31,8 +31,8 @@ class Card(models.Model):
         return f"{self.card_type} - {self.card_number}"
 
 class Transaction(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='transactions')
     transaction_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='transactions', default=3)
     source_account = models.ForeignKey(Account, related_name='source_transactions', on_delete=models.CASCADE)
     destination_account = models.ForeignKey(Account, related_name='destination_transactions', on_delete=models.CASCADE)
     amount = models.DecimalField(max_digits=10, decimal_places=2)

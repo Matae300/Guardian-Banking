@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../assets/Form.css';
 
-const Card = () => {
+const CardForm = () => {
   const [cardType, setCardType] = useState('debit'); 
   const navigate = useNavigate();
   const authToken = localStorage.getItem('accessToken');
@@ -63,4 +63,4 @@ const Card = () => {
   );
 };
 
-export default Card;
+export default CardForm;
