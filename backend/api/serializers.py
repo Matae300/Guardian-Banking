@@ -17,12 +17,12 @@ class UserSerializer(serializers.ModelSerializer):
 class AccountSerializer(serializers.ModelSerializer):
   class Meta:
     model = Account
-    fields = ['account_number', 'balance', 'account_type']
+    fields = ["id", 'account_number', 'balance', 'account_type']
 
 class CardSerializer(serializers.ModelSerializer):
   class Meta:
     model = Card
-    fields = ['card_number', 'card_type', 'expiration', 'cvv']
+    fields = ["id", 'card_number', 'card_type', 'expiration', 'cvv']
 
 class TransactionSerializer(serializers.ModelSerializer):
   class Meta:

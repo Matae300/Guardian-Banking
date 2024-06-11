@@ -1,12 +1,10 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../assets/Form.css';
 
 const AccountForm = () => {
   const [balance] = useState('0.00'); 
   const [accountType, setAccountType] = useState('checking'); 
-  const navigate = useNavigate();
   const authToken = localStorage.getItem('accessToken');
 
   function generateAccountNumber() {
@@ -28,16 +26,16 @@ const AccountForm = () => {
         }
       });
       console.log('Account created successfully:', response.data);
-      navigate('/account');
     } catch (error) {
       console.error('Error creating account:', error.response ? error.response.data : error.message);
     }
   };
 
   return (
-    <div className="">
+    <div className="account-form">
       <h2>Create Account</h2>
       <form onSubmit={handleFormSubmit}>
+      <label htmlFor="cardType">Account Type</label>
         <select
           value={accountType}
           onChange={(e) => setAccountType(e.target.value)}

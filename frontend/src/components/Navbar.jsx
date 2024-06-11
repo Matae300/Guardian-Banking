@@ -38,6 +38,11 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="nav-item">
+                <Link to="/management" className="nav-links">
+                  Management
+                </Link>
+              </li>
+              <li className="nav-item">
                 <button onClick={handleLogout} className="nav-links">
                   Logout
                 </button>

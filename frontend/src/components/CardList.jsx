@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import moment from 'moment';
 import axios from 'axios';
 
@@ -37,12 +38,16 @@ const CardList = () => {
       ) : (
         <>
           <h2>Cards</h2>
-          <p>Manage Cards</p>
+          <Link to="/management">
+            <p>Manage Account</p>
+          </Link>
           {cardData.map((card, index) => (
-            <div key={index} className="transaction-item">
-              <p>{moment(card.date_time).format('MMMM Do YYYY').toUpperCase()} {card.card_type.toUpperCase()} </p>
-              <p>{card.card_number}</p>
-            </div>
+            <Link to={`/management`} key={index}>
+              <div className="transaction-item">
+                <p>{moment(card.date_time).format('MMMM Do YYYY').toUpperCase()} {card.card_type.toUpperCase()} </p>
+                <p>{card.card_number}</p>
+              </div>
+            </Link>
           ))}
         </>
       )}

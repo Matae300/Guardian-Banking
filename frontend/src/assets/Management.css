@@ -1,0 +1,122 @@
+.management-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-column,
+.account-column {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.card-list {
+  max-height: 120px;
+  text-align: left;
+  margin-left: 60px;
+  margin-bottom: 10px;
+  padding: 15px;
+  border: 2px solid #ceb212be;
+  border-left: 20px solid #ceb212be; 
+  border-radius: 10px; 
+  background-color: black; 
+  color: white;
+  box-sizing: border-box; 
+  max-width: 300px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  position: relative; 
+}
+
+.card-list button {
+  background-color: #ceb21267; 
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  position: absolute; 
+  top: 2px; 
+  left: -20px; 
+  transition: background-color 0.3s ease;
+}
+
+.card-list button:hover {
+  background-color: #ceb212cf; 
+}
+
+.expiration {
+  text-align: left;
+}
+
+.account-list {
+  max-height: 120px;
+  text-align: left;
+  margin-left: 60px;
+  margin-bottom: 10px;
+  padding: 15px;
+  border: 2px solid black;
+  border-right: 20px solid black; 
+  border-radius: 10px; 
+  background-color: #ceb21247; 
+  color: black;
+  box-sizing: border-box; 
+  max-width: 300px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  position: relative; 
+}
+
+.account-list button {
+  background-color: black; 
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  position: absolute; 
+  top: 2px; 
+  right: -21px; 
+  transition: background-color 0.3s ease;
+}
+
+.account-list button:hover {
+  background-color: rgba(70, 70, 70, 0.318); 
+}
+
+.accountNumber {
+  font-weight: bold;
+}
+
+.card-form,
+.account-form {
+  margin-top: 20px;
+}
+
+.card-form label,
+.account-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.card-form select,
+.account-form select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box; 
+  margin-bottom: 10px;
+}
+
+.card-form button[type="submit"],
+.account-form button[type="submit"] {
+  background-color: #ceb212be; 
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.card-form button[type="submit"]:hover,
+.account-form button[type="submit"]:hover {
+  background-color: #ceb212e7;
+}

@@ -1,11 +1,9 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../assets/Form.css';
 
 const CardForm = () => {
-  const [cardType, setCardType] = useState('debit'); 
-  const navigate = useNavigate();
+  const [cardType, setCardType] = useState('debit');
   const authToken = localStorage.getItem('accessToken');
 
   function generateCardNumber() {
@@ -37,17 +35,16 @@ const CardForm = () => {
         }
       });
       console.log('Card created successfully:', response.data);
-      navigate('/account');
     } catch (error) {
       console.error('Error creating card:', error.response ? error.response.data : error.message);
     }
   };
 
   return (
-    <div className="card-form-container">
+    <div className="card-form">
       <h2>Create Card</h2>
       <form onSubmit={handleFormSubmit} className="card-form">
-        <label htmlFor="cardType">Card Type:</label>
+        <label htmlFor="cardType">Card Type</label>
         <select
           id="cardType"
           value={cardType}
