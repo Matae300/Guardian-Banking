@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Transaction from '../components/TransactionList';
 import CardList from '../components/CardList';
+import TransactionForm from '../components/TransactionForm';
 import '../assets/Form.css';
 import '../assets/Account.css';
 import '../assets/Card.css'
@@ -51,6 +52,7 @@ const CreateAccount = () => {
         <div>
           <h2>Account Details</h2>
           <CardList/>
+          <TransactionForm />
           {accountData.map((account, index) => (
             <div key={index} className="account-item" onClick={() => handleAccountClick(index)}>
               <h4>GB CONVENIENCE {account.account_type.toUpperCase()} ${account.balance}</h4>

@@ -87,6 +87,7 @@ const Management = () => {
               </div>
             ))}
           </div>
+          <div className="line"></div>
           <div className="account-column">
             <h2>Accounts</h2>
             {accountData.map((account, index) => (
@@ -97,8 +98,10 @@ const Management = () => {
               </div>
             ))}
           </div>
-          <div className='side-nav'>
+          <div className='transaction-side-nav'>
             <CardForm />
+            <br/>
+            _________________
             <AccountForm />
           </div>
         </div>

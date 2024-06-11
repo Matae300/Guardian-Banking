@@ -35,6 +35,7 @@ const CardForm = () => {
         }
       });
       console.log('Card created successfully:', response.data);
+      window.location.reload();
     } catch (error) {
       console.error('Error creating card:', error.response ? error.response.data : error.message);
     }

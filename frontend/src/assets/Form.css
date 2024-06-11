@@ -1,3 +1,4 @@
+
 .register-container {
   width: 300px;
   margin: auto;
@@ -32,3 +33,46 @@
   margin-top: 10px;
   text-align: center;
 }
+
+/* Card.css */
+.transaction-side-nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 151px;
+  height: 100vh;
+  padding: 20px;
+  background-color: #fff;
+  flex-direction: column; 
+  align-items: center; 
+}
+
+.transaction-side-nav h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #333;
+  text-align: center;
+}
+
+.transaction-side-nav label {
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #333;
+  font-size: 14px;
+  text-align: center;
+}
+
+.transaction-side-nav input {
+  margin-bottom: 10px;
+  width: calc(100% - 10px); 
+  padding-left: 10px;
+  align-items: center;
+}
+
+.transaction-side-nav select {
+  margin-bottom: 10px;
+  width: calc(100% - 10px); 
+  padding-left: 10px;
+  align-items: center;
+}
+

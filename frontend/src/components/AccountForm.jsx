@@ -26,6 +26,7 @@ const AccountForm = () => {
         }
       });
       console.log('Account created successfully:', response.data);
+      window.location.reload();
     } catch (error) {
       console.error('Error creating account:', error.response ? error.response.data : error.message);
     }

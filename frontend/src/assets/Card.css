@@ -2,8 +2,8 @@
 .side-nav {
   position: fixed;
   top: 0;
-  right: 0;
-  width: 150px;
+  left: 0;
+  width: 151px;
   height: 100vh;
   padding: 20px;
   background-color: #fff;

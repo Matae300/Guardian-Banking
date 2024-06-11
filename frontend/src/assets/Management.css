@@ -10,6 +10,7 @@
 }
 
 .card-list {
+  min-width: 80%;
   max-height: 120px;
   text-align: left;
   margin-left: 60px;
@@ -47,6 +48,7 @@
 }
 
 .account-list {
+  min-width: 80%;
   max-height: 120px;
   text-align: left;
   margin-left: 60px;
@@ -71,7 +73,7 @@
   cursor: pointer;
   position: absolute; 
   top: 2px; 
-  right: -21px; 
+  right: -20px; 
   transition: background-color 0.3s ease;
 }
 
@@ -119,4 +121,10 @@
 .card-form button[type="submit"]:hover,
 .account-form button[type="submit"]:hover {
   background-color: #ceb212e7;
+}
+
+.line {
+  width: 3px;
+  height: 100%px;
+  background-color: black;
 }
