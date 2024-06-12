@@ -74,7 +74,9 @@ const Management = () => {
       {loading ? (
         <p>Loading user data...</p>
       ) : error ? (
-        <p>Error: {error}</p>
+        <p>Error: {error.detail}</p>
+      ) : accountData.length || cardData.length === 0 ? (
+        <p className='error-p'>No accounts yet? Click here to create one Now!</p>
       ) : (
         <div className="management-container">
           <div className="card-column">
@@ -108,6 +110,6 @@ const Management = () => {
       )}
     </div>
   );
-};
+}
 
 export default Management;

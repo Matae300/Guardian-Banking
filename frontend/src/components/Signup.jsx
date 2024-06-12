@@ -13,10 +13,12 @@ const SignupPage = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
+      console.log('Before axios POST request');
       const response = await axios.post('http://localhost:8000/api/user/register/', {
         username,
         password,
       });
+      console.log('After axios POST request');
       const accessToken = response.data.access; 
       localStorage.setItem('accessToken', accessToken); 
       navigate('/account');

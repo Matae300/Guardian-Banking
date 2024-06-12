@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Transaction from '../components/TransactionList';
 import CardList from '../components/CardList';
@@ -47,7 +48,9 @@ const CreateAccount = () => {
       ) : error ? (
         <p>Error: {error}</p>
       ) : accountData.length === 0 ? (
-        <p>No accounts yet? Create one Now!</p>
+        <Link to='/management' className='link-class'>
+        <p className='error-p'>No accounts yet? CLick here to create one Now!</p>
+        </Link>
       ) : (
         <div>
           <h2>Account Details</h2>

@@ -24,3 +24,12 @@
 .account-item::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+.error-p {
+  font-size: 40px;
+}
+
+.link-class {
+  text-decoration: none; 
+  color: black;
+}
