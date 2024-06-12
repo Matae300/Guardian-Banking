@@ -35,6 +35,10 @@ class CardViewset(viewsets.ModelViewSet):
     authentication_classes = [JWTAuthentication]
     permission_classes = [permissions.IsAuthenticated]
 
+    def get_queryset(self):
+        user = self.request.user
+        return Card.objects.filter(user=user)
+
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
 

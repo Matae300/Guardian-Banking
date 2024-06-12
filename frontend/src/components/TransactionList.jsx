@@ -38,13 +38,17 @@ const Transaction = () => {
       ) : (
         <div className="transaction-container">
           <h2 className="transaction-heading">Account History</h2>
-          {transactionData.map((transaction, index) => (
-            <div key={index} className="transaction-item">
-             <p className="transaction-info">
-                {moment(transaction.date_time).format('MMMM Do YYYY').toUpperCase()} {transaction.transaction_type.toUpperCase()} <span style={{ color: 'green' }}>${transaction.amount.toUpperCase()}</span>
-              </p>
-            </div>
-          ))}
+          {transactionData.length === 0 ? (
+            <p>No transactions made on this account.</p>
+          ) : (
+            transactionData.map((transaction, index) => (
+              <div key={index} className="transaction-item">
+                      <p className="transaction-info">
+                      {moment(transaction.date_time).format('MMMM Do YYYY').toUpperCase()} {transaction.transaction_type.toUpperCase()} <span style={{ color: 'green' }}>${transaction.amount.toUpperCase()}</span>
+                      </p>
+              </div>
+            ))
+          )}
         </div>
       )}
     </div>

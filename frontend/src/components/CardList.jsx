@@ -35,6 +35,10 @@ const CardList = () => {
         <p>Loading card data...</p>
       ) : error ? (
         <p>Error: {error}</p>
+      ) : cardData.length === 0 ? (
+        <Link to='/management' className='link-class'>
+        <p className='error-p'>No Cards</p>
+        </Link>
       ) : (
         <>
           <h2>Cards</h2>

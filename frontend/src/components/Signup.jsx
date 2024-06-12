@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios'; 
-import '../assets/Form.css'
+import axios from 'axios';
+import '../assets/Form.css';
 
 const SignupPage = () => {
   const [username, setUsername] = useState('');
@@ -10,18 +10,14 @@ const SignupPage = () => {
 
   const navigate = useNavigate();
 
-  const handleLogin = async (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      console.log('Before axios POST request');
-      const response = await axios.post('http://localhost:8000/api/user/register/', {
+      await axios.post('http://localhost:8000/api/user/register/', {
         username,
         password,
       });
-      console.log('After axios POST request');
-      const accessToken = response.data.access; 
-      localStorage.setItem('accessToken', accessToken); 
-      navigate('/account');
+      navigate('/');
     } catch (error) {
       setError('Invalid credentials'); 
     }
@@ -30,7 +26,7 @@ const SignupPage = () => {
   return (
     <div className="register-container">
       <h2>Sign up</h2>
-      <form onSubmit={handleLogin}>
+      <form onSubmit={handleSignup}>
         <input
           type="text"
           placeholder="Username"

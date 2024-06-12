@@ -2,6 +2,7 @@
 .navbar {
   background-color: #ceb212be ;
   padding: 0.5rem;
+  padding-bottom: 5px;
   font-weight: bold;
   color: rgb(255, 255, 255);
   position: fixed; 
@@ -30,7 +31,7 @@
 }
 
 .nav-item {
-  margin-left: 1rem;
+  margin-left: 0.7rem;
   position: relative;
 }
 
@@ -62,10 +63,55 @@
   display: inline-block;
 }
 
+.dropdown-toggle {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  height: 100%;
+}
 
+.dropdown-menu {
+  color: black;
+  position: absolute;
+  top: 70px;
+  right: 0px;
+  background: #fff;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  z-index: 1;
+}
 
+.dropdown-menu h2 {
+  margin-right: 17px;
+}
 
-/* Add this to create space for the fixed navbar */
+.dropdown-menu input {
+  width: 80%;
+  margin: 0 10px;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.dropdown-menu button {
+  width: 80%;
+  margin-top: 10px;
+  margin-right: 15px;
+  transition: background-color 0.3s ease;
+  background-color: #ceb212be ;
+}
+
+.dropdown-menu > * {
+  margin-bottom: 0.5rem;
+}
+
+.dropdown-menu > *:last-child {
+  margin-bottom: 0;
+}
+
 body {
-  padding-top: 2rem; /* Adjust this value to match the height of the navbar */
+  padding-top: 2rem; 
 }

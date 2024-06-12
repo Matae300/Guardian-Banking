@@ -42,10 +42,9 @@ const Management = () => {
           Authorization: `Bearer ${authToken}`,
         },
       });
-      getUserData(); // Refresh data after deletion
+      getUserData(); 
     } catch (error) {
       console.error('Error deleting account:', error);
-      // Handle deletion error
       
     }
   };
@@ -57,10 +56,9 @@ const Management = () => {
           Authorization: `Bearer ${authToken}`,
         },
       });
-      getUserData(); // Refresh data after deletion
+      getUserData(); 
     } catch (error) {
       console.error('Error deleting card:', error);
-      // Handle deletion error
     }
   };
 
@@ -70,13 +68,19 @@ const Management = () => {
 
   return (
     <div>
+      <div className='transaction-side-nav'>
+        <CardForm />
+        <br/>
+        _________________
+        <AccountForm />
+      </div>
       <h1>Manage Account</h1>
       {loading ? (
         <p>Loading user data...</p>
       ) : error ? (
-        <p>Error: {error.detail}</p>
-      ) : accountData.length || cardData.length === 0 ? (
-        <p className='error-p'>No accounts yet? Click here to create one Now!</p>
+        <p>Error: {error}</p>
+      ) : (accountData.length === 0 && cardData.length === 0) ? (
+        <p className='error-p'>It looks like you do not have any accounts or cards yet. Create one to get started!</p>
       ) : (
         <div className="management-container">
           <div className="card-column">
@@ -99,12 +103,6 @@ const Management = () => {
                 <button onClick={() => handleDeleteAccount(account.id)}>X</button>
               </div>
             ))}
-          </div>
-          <div className='transaction-side-nav'>
-            <CardForm />
-            <br/>
-            _________________
-            <AccountForm />
           </div>
         </div>
       )}

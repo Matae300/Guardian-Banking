@@ -18,18 +18,10 @@ class AccountSerializer(serializers.ModelSerializer):
     model = Account
     fields = ["id", 'account_number', 'balance', 'account_type']
 
-    def create(self, validated_data):
-      account = Account.objects.create_user(**validated_data)
-      return account
-
 class CardSerializer(serializers.ModelSerializer):
   class Meta:
     model = Card
     fields = ["id", 'card_number', 'card_type', 'expiration', 'cvv']
-
-    def create(self, validated_data):
-      card = Card.objects.create(**validated_data)
-      return card
 
 class TransactionSerializer(serializers.ModelSerializer):
     source_account_number = serializers.CharField(write_only=True)

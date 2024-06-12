@@ -43,6 +43,7 @@ const CreateAccount = () => {
 
   return (
     <div>
+      <CardList/>
       {loading ? (
         <p>Loading account data...</p>
       ) : error ? (
@@ -54,7 +55,6 @@ const CreateAccount = () => {
       ) : (
         <div>
           <h2>Account Details</h2>
-          <CardList/>
           <TransactionForm />
           {accountData.map((account, index) => (
             <div key={index} className="account-item" onClick={() => handleAccountClick(index)}>

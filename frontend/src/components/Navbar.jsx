@@ -1,13 +1,21 @@
 import { Link, useNavigate } from 'react-router-dom';
-import '../assets/Navbar.css'
+import { useState } from 'react';
+import Login from './Login';
+import '../assets/Navbar.css';
 
 const Navbar = () => {
   const authToken = localStorage.getItem('accessToken');
   const navigate = useNavigate();
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setDropdownOpen(!isDropdownOpen);
+  };
 
   const handleLogout = () => {
     localStorage.removeItem('accessToken');
     navigate('/');
+    window.location.reload();
   };
 
   return (
@@ -24,10 +32,20 @@ const Navbar = () => {
           </li>
           {!authToken ? (
             <>
-              <li className="nav-item">
+                <li className="nav-item">
                 <Link to="/register" className="nav-links">
-                  Login
+                  Signup
                 </Link>
+              </li>
+              <li className="nav-item">
+                <button className="nav-links dropdown-toggle" onClick={toggleDropdown}>
+                  Login
+                </button>
+                {isDropdownOpen && (
+                  <div className="dropdown-menu">
+                    <Login />
+                  </div>
+                )}
               </li>
             </>
           ) : (
